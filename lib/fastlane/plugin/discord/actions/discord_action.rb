@@ -10,9 +10,9 @@ module Fastlane
 
         if params[:store] == 'ios'
           return self.itunes_notification(params)
-          
-        self.play_notification(params)
         end
+
+        self.play_notification(params)
       end
 
       def self.itunes_notification(params)
@@ -62,11 +62,31 @@ module Fastlane
 
       def self.available_options
         [
-          # FastlaneCore::ConfigItem.new(key: :your_option,
-          #                         env_name: "DISCORD_YOUR_OPTION",
-          #                      description: "A description of your option",
-          #                         optional: false,
-          #                             type: String)
+          FastlaneCore::ConfigItem.new(key: :url,
+                                  env_name: "DISCORD_URL",
+                               description: "Discord Webhook URL",
+                                  optional: false,
+                                      type: String),
+          FastlaneCore::ConfigItem.new(key: :build_number,
+                                  env_name: "DISCORD_BUILD_NUMBER",
+                               description: "New build number",
+                                  optional: false,
+                                      type: String),
+          FastlaneCore::ConfigItem.new(key: :version,
+                                  env_name: "DISCORD_VERSION",
+                                description: "Version of the build",
+                                  optional: false,
+                                      type: String),
+          FastlaneCore::ConfigItem.new(key: :app_name,
+                                  env_name: "DISCORD_APP_NAME",
+                               description: "Name of the app",
+                                  optional: false,
+                                      type: String),
+          FastlaneCore::ConfigItem.new(key: :store,
+                                  env_name: "DISCORD_STORE",
+                               description: "Which app store the app has deployed (ios or android), default is android.",
+                                  optional: true,
+                                      type: String)
         ]
       end
 
