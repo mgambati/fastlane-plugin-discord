@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'matheusgambati@gmail.com'
 
   spec.summary       = 'Discord integration with Fastlane.'
-  # spec.homepage      = "https://github.com/mgambati/fastlane-plugin-discord"
+  spec.homepage      = "https://github.com/mgambati/fastlane-plugin-discord"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
