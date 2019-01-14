@@ -8,7 +8,7 @@ module Fastlane
       def self.run(params)
         UI.message("Notifying Discord")
 
-        if params[:store] == 'ios'
+        if params[:platform] == 'ios'
           return self.itunes_notification(params)
         end
 
@@ -44,7 +44,7 @@ module Fastlane
       end
 
       def self.description
-        "Discord integration with Fastlane."
+        "Discord integration with Fastlane"
       end
 
       def self.authors
@@ -63,17 +63,14 @@ module Fastlane
       def self.available_options
         [
           FastlaneCore::ConfigItem.new(key: :url,
-                                  env_name: "DISCORD_URL",
                                description: "Discord Webhook URL",
                                   optional: false,
                                       type: String),
           FastlaneCore::ConfigItem.new(key: :build_number,
-                                  env_name: "DISCORD_BUILD_NUMBER",
                                description: "New build number",
                                   optional: false,
-                                      type: String),
+                                      type: Integer),
           FastlaneCore::ConfigItem.new(key: :version,
-                                  env_name: "DISCORD_VERSION",
                                 description: "Version of the build",
                                   optional: false,
                                       type: String),
@@ -82,11 +79,12 @@ module Fastlane
                                description: "Name of the app",
                                   optional: false,
                                       type: String),
-          FastlaneCore::ConfigItem.new(key: :store,
+          FastlaneCore::ConfigItem.new(key: :platform,
                                   env_name: "DISCORD_STORE",
-                               description: "Which app store the app has deployed (ios or android), default is android.",
+                               description: "Which app store the app has deployed",
                                   optional: true,
-                                      type: String)
+                                      type: String,
+                             default_value: 'android')
         ]
       end
 
