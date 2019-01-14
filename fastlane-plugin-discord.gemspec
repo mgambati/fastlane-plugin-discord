@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.author        = 'Matheus Gambati'
   spec.email         = 'matheusgambati@gmail.com'
 
-  spec.summary       = 'Discord integration with Fastlane.'
+  spec.summary       = 'Discord integration with Fastlane'
   spec.homepage      = "https://github.com/mgambati/fastlane-plugin-discord"
   spec.license       = "MIT"
 
